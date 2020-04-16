@@ -1,0 +1,24 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model maildata {
+  id        Int      @default(autoincrement()) @id
+  timestamp DateTime @default(now())
+  userId    Int
+  user      user     @relation(fields: [userId], references: [id])
+
+  @@index([userId], name: "maildata_ibfk_1")
+}
+
+model user {
+  email    String
+  id       Int        @default(autoincrement()) @id
+  name     String
+  maildata maildata[]
+}
