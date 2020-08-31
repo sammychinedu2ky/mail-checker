@@ -7,8 +7,8 @@ const prisma = new PrismaClient()
 async function load(){
 let user = await prisma.user.create({
     data:{
-        email:"samson2ky@yahoo.com",
-        name: "Samson Amaugo"
+        email:process.env.MAIL,
+        name: process.env.NAME
     }
 })
 console.log(user)

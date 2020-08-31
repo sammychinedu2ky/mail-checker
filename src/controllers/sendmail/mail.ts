@@ -2,17 +2,17 @@
 const nodemailer = require("nodemailer");
 import Template from './template'
 
-async function main(userId: number) {
+async function main(userId: number,recepient:string) {
 
 
   return new Promise(async (resolve, reject) => {
     let transporter = nodemailer.createTransport({
-      host: "167.99.153.106",
+      host: process.env.HOST,
       port: 587,
       secure: false,
       auth: {
-        user: 'ecoinofficial',
-        pass: 'jeanso01!'
+        user: process.env.USER,
+        pass: process.env.PASS
       },
       tls: {
         rejectUnauthorized: false
@@ -21,8 +21,8 @@ async function main(userId: number) {
 
 
     let info = await transporter.sendMail({
-      from: '"EcoinOfficial" <noreply@ecoinofficial.org>',
-      to: "sammychinedu2ky@gmail.com, samson2ky@yahoo.com",
+      from: process.env.sender,
+      to: recepient,
       subject: "Transaction details",
 
       html: Template.text(userId.toString())

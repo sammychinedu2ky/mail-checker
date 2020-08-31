@@ -24,7 +24,7 @@ export default  <template>{
                     <tr>
                         <td align="center" bgcolor="#d431c7"
                             style="padding: 40px 0 30px 0; color: #153643; font-size: 28px; font-weight: bold; font-family: Arial, sans-serif;">
-                            <img src="ecoin.png"
+                            <img src=${process.env.image}
                                 alt="Creating Email Magic" width="200" height="100" style="display: block;" />
                         </td>
                     </tr>
@@ -55,7 +55,7 @@ export default  <template>{
                                 <tr>
                                     <td style="color: #ffffff; font-family: Arial, sans-serif; font-size: 14px;"
                                         width="75%">
-                                        &reg; Ecoin 2020<br />
+                                        &reg; ${process.env.image} 2020<br />
                                         <span href="#" style="color: #ffffff;">
                                         <img src="161.35.15.66/mailinfo/${userId}"/>
                                             <font color="#ffffff">subscribe</font>

@@ -17,10 +17,11 @@ export default class {
    async handle(req:Request,res:Response){
    let userId = req.params.userId
    
-   /*let user = await prisma.user.findOne({where:{
+   let user = await prisma.user.findOne({where:{
        id:parseInt(userId)
-   }})*/
-      await Mail(parseInt(userId))  
+   }})
+   
+      await Mail(parseInt(userId),user.email)  
        res.json({message:'sent'})
     }
 }
